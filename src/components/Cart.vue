@@ -106,7 +106,7 @@ export default class extends Vue {
   }
 
   GrandTotal() {
-    return this.SubTotal() + this.Tax();
+    return +this.SubTotal() + +this.Tax();
   }
   ClearCart() {
     store.state.CartArray = [];
