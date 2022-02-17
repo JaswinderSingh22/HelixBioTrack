@@ -1,0 +1,88 @@
+{
+  "Details": [
+    {
+      "Name": "Product 1",
+      "Gender": "Female",
+      "Size": "S",
+      "Color": "red",
+      "Price": "100",
+      "Tax": "10",
+      "Quantity": "1000",
+      "OverLay": false,
+      "Count": 0,
+      "id": 1
+    },
+    {
+      "Name": "Product",
+      "Gender": "Male",
+      "Size": "S",
+      "Color": "blue",
+      "Price": "400",
+      "Tax": "12",
+      "Quantity": "1000",
+      "OverLay": false,
+      "Count": 0,
+      "id": 2
+    },
+    {
+      "Name": "product 3",
+      "Gender": "",
+      "Size": "",
+      "Color": "",
+      "Price": "3000",
+      "Tax": "14",
+      "Quantity": "5",
+      "OverLay": false,
+      "Count": 0,
+      "id": 3
+    },
+    {
+      "Name": "Product 4",
+      "Gender": "Female",
+      "Size": "S",
+      "Color": "black",
+      "Price": "500",
+      "Tax": "18",
+      "Quantity": "12",
+      "OverLay": false,
+      "Count": 0,
+      "id": 4
+    },
+    {
+      "Name": "product 5",
+      "Gender": "Other",
+      "Size": "S",
+      "Color": "red",
+      "Price": "999",
+      "Tax": "12",
+      "Quantity": "300",
+      "OverLay": false,
+      "Count": 0,
+      "id": 5
+    },
+    {
+      "Name": "product 6",
+      "Gender": "Female",
+      "Size": "L",
+      "Color": "violet",
+      "Price": "1000",
+      "Tax": "15",
+      "Quantity": "1000",
+      "OverLay": false,
+      "Count": 0,
+      "id": 6
+    },
+    {
+      "Name": "product 7",
+      "Gender": "Female",
+      "Size": "M",
+      "Color": "Lal",
+      "Price": "1999",
+      "Tax": "12",
+      "Quantity": "100",
+      "OverLay": false,
+      "Count": 0,
+      "id": 7
+    }
+  ]
+}
