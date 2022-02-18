@@ -110,7 +110,7 @@
 import { Component, Vue } from "vue-property-decorator";
 import { mapActions } from "vuex";
 import store from "../store";
-import Nav_bar from "../components/Nav_bar.vue";
+import Nav_bar from "./Navbar.vue";
 
 @Component({
   ...mapActions(["Add_Product"]),

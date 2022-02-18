@@ -116,7 +116,7 @@
 import { Component, Vue } from "vue-property-decorator";
 import { mapActions, mapGetters } from "vuex";
 import store from "../store";
-import Nav_bar from "./Nav_bar.vue";
+import Nav_bar from "./Navbar.vue";
 
 @Component({
   ...mapActions(["Update_Product"]),

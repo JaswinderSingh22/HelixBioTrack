@@ -1,6 +1,6 @@
 <template>
   <v-card style="width: 80%" class="card">
-    <Normal_Nav/>
+    
     <v-container fluid class="ml-12 mt-5">
       <v-row>
         <v-switch
@@ -83,10 +83,10 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 import store from "../store";
-import Normal_Nav from "../components/Normal_Nav.vue"
+
 @Component({
   components:{
-    Normal_Nav
+    
   }
 })
 export default class extends Vue {

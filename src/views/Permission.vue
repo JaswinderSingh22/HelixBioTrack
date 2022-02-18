@@ -1,9 +1,7 @@
 <template>
   <div>
     <v-app>
-    <Nav_bar/>
       <v-card>
-      
         <v-card-text>
           <v-container>
             <v-row><Permissions /> </v-row>
@@ -16,13 +14,12 @@
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import Permissions from "../components/Permissions.vue"
-import Nav_bar from "../components/Nav_bar.vue"
+import Permissions from "../components/Permissions.vue";
+
 @Component({
-    components:{
-        Permissions,
-        Nav_bar
-    }
+  components: {
+    Permissions,
+  },
 })
 export default class extends Vue {}
 </script>

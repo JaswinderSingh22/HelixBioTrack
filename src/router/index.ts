@@ -4,7 +4,7 @@ import Home from '../views/Home.vue'
 import Form from '../components/Form.vue'
 import Update_form from '../components/Update_form.vue'
 import Products from '../views/Products.vue'
-import Error_Page from '../components/Error_Page.vue'
+import ErrorPage from '../components/ErrorPage.vue'
 import Permission from '../views/Permission.vue'
 import Point_Sale from '../views/Point_Sale.vue'
 Vue.use(VueRouter)
@@ -42,8 +42,8 @@ const routes: Array<RouteConfig> = [
   },
   {
     path: '/*',
-    name: 'Error_Page',
-    component: Error_Page
+    name: 'ErrorPage',
+    component: ErrorPage
   },
   
 ]

@@ -1,8 +1,8 @@
 <template>
   <v-app>
-    <Nav_bar />
+    
     <div class="main">
-      <Normal_Nav />
+      <NormalNavbar />
       <div class="CONTAINER">
         <div class="CARDS">
           <Cards />
@@ -17,14 +17,14 @@
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import Nav_bar from "../components/Nav_bar.vue";
-import Normal_Nav from "@/components/Normal_Nav.vue";
+
+import NormalNavbar from "@/components/NormalNavbar.vue";
 import Cart from "../components/Cart.vue";
 import Cards from "@/components/Cards.vue";
 @Component({
   components: {
-    Nav_bar,
-    Normal_Nav,
+    
+    NormalNavbar,
     Cart,
     Cards,
   },
