@@ -44,7 +44,21 @@ export interface type {
 
 export default new Vuex.Store<type>({
   state: {
-    Products: [],
+    Products: [
+      {
+        id: 1,
+        Name: "Default",
+        Gender: "NA",
+        Size: "NA",
+        Color: "NA",
+        Price: 0,
+        Tax: 0,
+        Quantity: 0,
+        Count:0,
+        OverLay:false
+  
+      }
+    ],
 
     EditedId: 0,
     // EditedDetails: [],
@@ -140,7 +154,7 @@ export default new Vuex.Store<type>({
     },
 
 
-    async UpdateDetails({ commit }, payload: any) {
+    async update_details({ commit }, payload: any) {
       const response = await axios.put(`http://localhost:3000/Details/${this.state.EditedId}`, payload)
       commit('UPDATE_PRODUCTS', response.data)
     },

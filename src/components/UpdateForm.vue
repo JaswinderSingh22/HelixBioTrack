@@ -102,7 +102,7 @@
           </v-btn>
           <v-spacer></v-spacer>
           <router-link to="/Products">
-            <v-btn color="primary" dark class="mt-4" @click="UpdateDetails">
+            <v-btn color="primary" dark class="mt-4" @click="update_details">
               UPDATE DETAILS
             </v-btn>
           </router-link>
@@ -158,7 +158,7 @@ export default class extends Vue {
     this.quantity = store.state.Products[store.state.EditedId - 1].Quantity;
   }
 
-  UpdateDetails() {
+  update_details() {
     let payload = {
       Name: this.name,
       Gender: this.gender,
@@ -172,7 +172,7 @@ export default class extends Vue {
       
     };
     
-    store.dispatch("UpdateDetails", payload);
+    store.dispatch("update_details", payload);
   }
 }
 </script>

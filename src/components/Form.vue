@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-app>
-    <Nav_bar />
+    
       <v-container fluid style="width: 50%">
         <v-card>
           <v-sheet elevation="6">
@@ -110,12 +110,12 @@
 import { Component, Vue } from "vue-property-decorator";
 import { mapActions } from "vuex";
 import store from "../store";
-import Navbar from "./Navbar.vue";
+
 
 @Component({
   ...mapActions(["Add_Product"]),
   components: {
-    Navbar,
+    
   },
 })
 export default class extends Vue {
