@@ -197,7 +197,7 @@ import store from "../store";
 export default class extends Vue {
   drawer = false;
   INVENTORY_TOOLS = [
-    { id: 1, text: "Product", route: "/Products" },
+    { id: 1, text: "Products", route: "/Products" },
     { id: 2, text: "Product Categories", route: "/" },
     { id: 3, text: "Batch Types", route: "/" },
     { id: 4, text: "Strain ", route: "/" },
@@ -224,7 +224,7 @@ export default class extends Vue {
   ];
   RETAIL = [
     { id: 21, text: "Check-in", route: "/Check-in" },
-    { id: 22, text: "Point of sale", route: "/Point_Sale" },
+    { id: 22, text: "Point of sale", route: "/PointSale" },
     { id: 23, text: "Order fullfillment", route: "/Order_fullfillment" },
     { id: 24, text: "customer profile", route: "/Customer_Profile" },
     { id: 25, text: "Management", route: "/Management" },

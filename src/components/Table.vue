@@ -7,7 +7,7 @@
         ><v-toolbar-title>PRODUCTS</v-toolbar-title>
         <v-spacer></v-spacer>
 
-        <v-btn v-show="$store.state.Add_Permission" color="primary" dark class="mb-2" to="/Form">
+        <v-btn v-show="$store.state.AddPermission" color="primary" dark class="mb-2" to="/Form">
           ADD NEW PRODUCT
         </v-btn>
       </v-toolbar>
@@ -30,7 +30,7 @@
             </tr>
           </thead>
           <br>
-          <tbody v-show="$store.state.TableData_Permisson" >
+          <tbody v-show="$store.state.TableDataPermisson" >
             <tr v-for="item in $store.state.Products" :key="item.id" >
               <td>{{ item.Name }}</td>
               <td>{{ item.Gender }}</td>
@@ -40,13 +40,13 @@
               <td>{{ item.Tax }}</td>
               <td>{{ item.Quantity }}</td>
               <td>
-                <router-link to="/Update_form">
-                  <v-btn v-show="$store.state.Edit_Permission" @click="edit_product(item.id)"
+                <router-link to="/UpdateForm">
+                  <v-btn v-show="$store.state.EditPermission" @click="edit_product(item.id)"
                     ><v-icon  class="mr-2"> mdi-pencil </v-icon></v-btn
                   >
                 </router-link>
 
-                <v-btn  v-show="$store.state.Remove_Permission" @click="remove_product(item.id)"
+                <v-btn  v-show="$store.state.RemovePermission" @click="RemoveProduct(item.id)"
                   ><v-icon> mdi-delete </v-icon></v-btn
                 >
               </td>
@@ -56,7 +56,7 @@
       </v-simple-table>
     </v-container>
     <template>
-      <v-btn dark class="mb-2" color="red" @click="remove_all"> Reset </v-btn>
+      <v-btn dark class="mb-2" color="red" @click="RemoveAll"> Reset </v-btn>
     </template>
   </v-container>
 </template>
@@ -68,10 +68,10 @@ import store from "../store";
 
 @Component({
   computed: {
-    ...mapGetters(["All_Products"]),
+    ...mapGetters(["AllProducts"]),
   },
   methods: {
-    ...mapActions(["Get_Products"]),
+    ...mapActions(["GetProducts"]),
   },
 })
 export default class extends Vue {
@@ -82,23 +82,23 @@ export default class extends Vue {
     carbs: 0,
     protein: 0,
   };
-  Edited_Id = -1;
+  EditedId = -1;
 
   created() {
-    this.Get_Products();
+    this.GetProducts();
   }
 
-  remove_all(): void {
+  RemoveAll(): void {
     alert("Are you sure");
-    store.dispatch("remove_all");
+    store.dispatch("RemoveAll");
   }
-  remove_product(id: number): void {
-    store.dispatch("remove_product", id);
+  RemoveProduct(id: number): void {
+    store.dispatch("RemoveProduct", id);
   }
 
   edit_product(id: number) {
     
-    store.state.Edited_Id = id;
+    store.state.EditedId = id;
    
   }
 }

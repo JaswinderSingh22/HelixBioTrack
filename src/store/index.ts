@@ -20,22 +20,22 @@ export interface type {
     }
   ],
 
-  Edited_Id: number
-  Edited_details: []
-  Page_Permission: boolean
-  Edit_Permission: boolean
-  Product_Permisson: boolean
-  Price_Permission: boolean
-  P_Name: boolean
-  P_Gender: boolean
-  P_Size: boolean
-  P_Color: boolean
-  P_Price: boolean
-  P_Tax: boolean
-  P_Quantity: boolean
-  Add_Permission: boolean
-  Remove_Permission: boolean
-  TableData_Permisson: boolean
+  EditedId: number
+  // EditedDetails: []
+  PagePermission: boolean
+  EditPermission: boolean
+  ProductPermisson: boolean
+  PricePermission: boolean
+  ProductName: boolean
+  ProductGender: boolean
+  ProductSize: boolean
+  ProductColor: boolean
+  ProductPrice: boolean
+  ProductTax: boolean
+  ProductQuantity: boolean
+  AddPermission: boolean
+  RemovePermission: boolean
+  TableDataPermisson: boolean
   CartIndex:number
   ShowCart:boolean
   CartArray:any[]
@@ -46,22 +46,22 @@ export default new Vuex.Store<type>({
   state: {
     Products: [],
 
-    Edited_Id: 0,
-    Edited_details: [],
-    Page_Permission: true,
-    Edit_Permission: true,
-    Product_Permisson: true,
-    Price_Permission: true,
-    P_Name: true,
-    P_Gender: true,
-    P_Size: true,
-    P_Color: true,
-    P_Price: true,
-    P_Tax: true,
-    P_Quantity: true,
-    Add_Permission: true,
-    Remove_Permission: true,
-    TableData_Permisson: true,
+    EditedId: 0,
+    // EditedDetails: [],
+    PagePermission: true,
+    EditPermission: true,
+    ProductPermisson: true,
+    PricePermission: true,
+    ProductName: true,
+    ProductGender: true,
+    ProductSize: true,
+    ProductColor: true,
+    ProductPrice: true,
+    ProductTax: true,
+    ProductQuantity: true,
+    AddPermission: true,
+    RemovePermission: true,
+    TableDataPermisson: true,
     CartIndex:0,
     ShowCart:false,
     CartArray:[]
@@ -70,7 +70,7 @@ export default new Vuex.Store<type>({
 
   },
   getters: {
-    All_Products: state => state.Products,
+    AllProducts: state => state.Products,
 
   },
 
@@ -118,30 +118,30 @@ export default new Vuex.Store<type>({
 
   },
   actions: {
-    async Get_Products({ commit }) {
+    async GetProducts({ commit }) {
       const response = await axios.get("http://localhost:3000/Details");
       commit("SET_PRODUCTS", response.data)
     },
-    async add_product({ commit }, payload: type) {
+    async AddProduct({ commit }, payload: type) {
 
       const response = await axios.post("http://localhost:3000/Details", payload)
 
       commit("ADD_PRODUCT", response.data)
     },
 
-    async remove_product({ commit }, payload: number) {
+    async RemoveProduct({ commit }, payload: number) {
 
       await axios.delete(`http://localhost:3000/Details/${payload}`)
       commit("REMOVE_PRODUCT", payload)
     },
-    async remove_all({ commit }) {
+    async RemoveAll({ commit }) {
 
       commit('REMOVE_ALL')
     },
 
 
-    async update_details({ commit }, payload: any) {
-      const response = await axios.put(`http://localhost:3000/Details/${this.state.Edited_Id}`, payload)
+    async UpdateDetails({ commit }, payload: any) {
+      const response = await axios.put(`http://localhost:3000/Details/${this.state.EditedId}`, payload)
       commit('UPDATE_PRODUCTS', response.data)
     },
 

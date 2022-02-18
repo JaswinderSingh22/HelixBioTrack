@@ -24,7 +24,7 @@
                           <v-text-field
                             label="Product name"
                             v-model="name"
-                            v-show="$store.state.P_Name"
+                            v-show="$store.state.ProductName"
                           ></v-text-field>
                         </v-col>
                         <v-col md="3">
@@ -32,7 +32,7 @@
                             :items="['Male', 'Female', 'Other']"
                             label="Select Gender"
                             v-model="gender"
-                             v-show="$store.state.P_Gender"
+                             v-show="$store.state.ProductGender"
                           >
                           </v-select>
                         </v-col>
@@ -41,14 +41,14 @@
                             :items="['XS', 'S', 'M', 'L', 'XL', 'XXL']"
                             label="Select Size"
                             v-model="size"
-                             v-show="$store.state.P_Size"
+                             v-show="$store.state.ProductSize"
                           ></v-select>
                         </v-col>
                         <v-col md="2">
                           <v-text-field
                             label="Color"
                             v-model="color"
-                             v-show="$store.state.P_Color"
+                             v-show="$store.state.ProductColor"
                           ></v-text-field>
                         </v-col>
                       </v-row>
@@ -67,14 +67,14 @@
                           <v-text-field
                             label="Price in Rupees"
                             v-model="price"
-                             v-show="$store.state.P_Price"
+                             v-show="$store.state.ProductPrice"
                           ></v-text-field>
                         </v-col>
                         <v-col md="3">
                           <v-text-field
                             label="Tax (%)"
                             v-model="tax"
-                             v-show="$store.state.P_Tax"
+                             v-show="$store.state.ProductTax"
                           ></v-text-field>
                         </v-col>
 
@@ -82,7 +82,7 @@
                           <v-text-field
                             label="Quantity"
                             v-model="quantity"
-                             v-show="$store.state.P_Quantity"
+                             v-show="$store.state.ProductQuantity"
                           ></v-text-field>
                         </v-col>
                       </v-row>
@@ -102,7 +102,7 @@
           </v-btn>
           <v-spacer></v-spacer>
           <router-link to="/Products">
-            <v-btn color="primary" dark class="mt-4" @click="update_details">
+            <v-btn color="primary" dark class="mt-4" @click="UpdateDetails">
               UPDATE DETAILS
             </v-btn>
           </router-link>
@@ -121,7 +121,7 @@ import Nav_bar from "./Navbar.vue";
 @Component({
   ...mapActions(["Update_Product"]),
   computed: {
-    ...mapGetters(["All_Products"]),
+    ...mapGetters(["AllProducts"]),
   },
     components:{
       Nav_bar
@@ -146,19 +146,19 @@ export default class extends Vue {
     this.quantity = null;
   }
   mounted() {
-    // this.name=store.state.Products[store.state.Edited_Id-1].name
+    // this.name=store.state.Products[store.state.EditedId-1].name
     console.log(store.state.Products);
-    console.log(store.state.Edited_Id - 1);
-    this.name = store.state.Products[store.state.Edited_Id - 1].Name;
-    this.gender = store.state.Products[store.state.Edited_Id - 1].Gender;
-    this.size = store.state.Products[store.state.Edited_Id - 1].Size;
-    this.color = store.state.Products[store.state.Edited_Id - 1].Color;
-    this.price = store.state.Products[store.state.Edited_Id - 1].Price;
-    this.tax = store.state.Products[store.state.Edited_Id - 1].Tax;
-    this.quantity = store.state.Products[store.state.Edited_Id - 1].Quantity;
+    console.log(store.state.EditedId - 1);
+    this.name = store.state.Products[store.state.EditedId - 1].Name;
+    this.gender = store.state.Products[store.state.EditedId - 1].Gender;
+    this.size = store.state.Products[store.state.EditedId - 1].Size;
+    this.color = store.state.Products[store.state.EditedId - 1].Color;
+    this.price = store.state.Products[store.state.EditedId - 1].Price;
+    this.tax = store.state.Products[store.state.EditedId - 1].Tax;
+    this.quantity = store.state.Products[store.state.EditedId - 1].Quantity;
   }
 
-  update_details() {
+  UpdateDetails() {
     let payload = {
       Name: this.name,
       Gender: this.gender,
@@ -172,7 +172,7 @@ export default class extends Vue {
       
     };
     
-    store.dispatch("update_details", payload);
+    store.dispatch("UpdateDetails", payload);
   }
 }
 </script>

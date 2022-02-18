@@ -13,7 +13,7 @@
           </v-card-title>
           <v-divider></v-divider>
           <div>
-            <v-container class="ITEM_CART" style="text-align: center">
+            <v-container class="ItemCart" style="text-align: center">
               <div class="Cart" v-if="$store.state.ShowCart == false">
                 There are no Items in the Cart
               </div>
@@ -77,7 +77,7 @@ import { Component, Vue } from "vue-property-decorator";
 import { mapGetters } from "vuex";
 @Component({
   computed: {
-    ...mapGetters(["All_Products"]),
+    ...mapGetters(["AllProducts"]),
   },
 })
 export default class extends Vue {
@@ -115,7 +115,7 @@ export default class extends Vue {
 </script>
 
 <style scoped>
-.ITEM_CART {
+.ItemCart {
   height: 300px;
   overflow: scroll;
 }

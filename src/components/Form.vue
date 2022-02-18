@@ -96,7 +96,7 @@
           </v-btn>
           <v-spacer></v-spacer>
           <router-link to="/Products">
-            <v-btn color="primary" dark class="mt-4" @click="add_product">
+            <v-btn color="primary" dark class="mt-4" @click="AddProduct">
               SUBMIT PRODUCT
             </v-btn>
           </router-link>
@@ -137,7 +137,7 @@ export default class extends Vue {
     this.quantity = null;
   }
 
-  add_product() {
+  AddProduct() {
     let payload = {
       Name: this.name,
       Gender: this.gender,
@@ -152,7 +152,7 @@ export default class extends Vue {
       
     };
     console.log(payload)
-    store.dispatch("add_product", payload);
+    store.dispatch("AddProduct", payload);
   }
 }
 </script>

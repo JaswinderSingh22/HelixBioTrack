@@ -6,7 +6,7 @@
     </h1>
     <br />
     <router-link to="/"  > 
-    <v-btn @click= "$store.state.Page_Permission=true"> Back to Home page</v-btn>
+    <v-btn @click= "$store.state.PagePermission=true"> Back to Home page</v-btn>
     </router-link>
     
   </div>

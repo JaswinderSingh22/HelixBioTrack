@@ -5,26 +5,26 @@
       <v-row>
         <v-switch
           inset
-          v-model="$store.state.Page_Permission"
+          v-model="$store.state.PagePermission"
           label="PRODUCTS"
         ></v-switch>
         <v-switch
           inset
           class="ml-16"
           label="ADD PRODUCT"
-          v-model="$store.state.Add_Permission"
+          v-model="$store.state.AddPermission"
         ></v-switch>
         <v-switch
           inset
           class="ml-16"
           label="REMOVE PRODUCT"
-          v-model="$store.state.Remove_Permission"
+          v-model="$store.state.RemovePermission"
         ></v-switch>
         <v-switch
           inset
           class="ml-16"
           label="TABLE DATA"
-          v-model="$store.state.TableData_Permisson"
+          v-model="$store.state.TableDataPermisson"
         ></v-switch>
       </v-row>
 
@@ -32,7 +32,7 @@
         <v-switch
           inset
           label="EDITING"
-          v-model="$store.state.Edit_Permission"
+          v-model="$store.state.EditPermission"
         ></v-switch>
       </v-row>
       <v-row>
@@ -40,45 +40,45 @@
           inset
           label="PRODUCTS"
           class="ml-12"
-          v-model="$store.state.Product_Permisson"
+          v-model="$store.state.ProductPermisson"
         ></v-switch>
         <v-col cols="12" sm="4" md="4" class="my-10">
-          <v-switch inset label="NAME" v-model="$store.state.P_Name"></v-switch>
+          <v-switch inset label="NAME" v-model="$store.state.ProductName"></v-switch>
           <v-switch
             inset
             label="GENDER"
-            v-model="$store.state.P_Gender"
+            v-model="$store.state.ProductGender"
           ></v-switch>
-          <v-switch inset label="SIZE" v-model="$store.state.P_Size"></v-switch>
+          <v-switch inset label="SIZE" v-model="$store.state.ProductSize"></v-switch>
           <v-switch
             inset
             label="COLOR"
-            v-model="$store.state.P_Color"
+            v-model="$store.state.ProductColor"
           ></v-switch>
         </v-col>
 
         <v-switch
           inset
           label="PRICE"
-          v-model="$store.state.Price_Permission"
+          v-model="$store.state.PricePermission"
         ></v-switch>
         <v-col cols="12" sm="4" md="4" class="my-10">
           <v-switch
             inset
             label="PRICE"
-            v-model="$store.state.P_Price"
+            v-model="$store.state.ProductPrice"
           ></v-switch>
-          <v-switch inset label="TAX" v-model="$store.state.P_Tax"></v-switch>
+          <v-switch inset label="TAX" v-model="$store.state.ProductTax"></v-switch>
           <v-switch
             inset
             label="QUANTITY"
-            v-model="$store.state.P_Quantity"
+            v-model="$store.state.ProductQuantity"
           ></v-switch>
         </v-col>
       </v-row>
     </v-container>
   </v-card>
-</template>   v-model="true 
+</template>   
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
@@ -91,34 +91,34 @@ import store from "../store";
 })
 export default class extends Vue {
   updated() {
-    // console.log("Page", store.state.Page_Permission);
-    // console.log("Add Product", store.state.Add_Permission);
-    // console.log("Remove permission", store.state.Remove_Permission);
-    // console.log("Edit permission", store.state.Edit_Permission);
-    // console.log("Product permission", store.state.Product_Permisson);
-    // console.log("Price permission", store.state.Price_Permission);
-    // console.log("Name", store.state.P_Name);
-    // console.log("Gender", store.state.P_Gender);
-    // console.log("Size", store.state.P_Size);
-    // console.log("Color", store.state.P_Color);
-    // console.log("Price", store.state.P_Price);
-    // console.log("Tax", store.state.P_Tax);
-    // console.log("Quantity", store.state.P_Quantity);
+    // console.log("Page", store.state.PagePermission);
+    // console.log("Add Product", store.state.AddPermission);
+    // console.log("Remove permission", store.state.RemovePermission);
+    // console.log("Edit permission", store.state.EditPermission);
+    // console.log("Product permission", store.state.ProductPermisson);
+    // console.log("Price permission", store.state.PricePermission);
+    // console.log("Name", store.state.ProductName);
+    // console.log("Gender", store.state.ProductGender);
+    // console.log("Size", store.state.ProductSize);
+    // console.log("Color", store.state.ProductColor);
+    // console.log("Price", store.state.ProductPrice);
+    // console.log("Tax", store.state.ProductTax);
+    // console.log("Quantity", store.state.ProductQuantity);
 
-    if (store.state.Edit_Permission == false) {
-      store.state.Product_Permisson = false;
-      store.state.Price_Permission = false;
+    if (store.state.EditPermission == false) {
+      store.state.ProductPermisson = false;
+      store.state.PricePermission = false;
     }
-    if (store.state.Product_Permisson == false) {
-      store.state.P_Name = false;
-      store.state.P_Gender = false;
-      store.state.P_Size = false;
-      store.state.P_Color = false;
+    if (store.state.ProductPermisson == false) {
+      store.state.ProductName = false;
+      store.state.ProductGender = false;
+      store.state.ProductSize = false;
+      store.state.ProductColor = false;
     }
-    if (store.state.Price_Permission == false) {
-      store.state.P_Price = false;
-      store.state.P_Tax = false;
-      store.state.P_Quantity = false;
+    if (store.state.PricePermission == false) {
+      store.state.ProductPrice = false;
+      store.state.ProductTax = false;
+      store.state.ProductQuantity = false;
     }
   }
 }
