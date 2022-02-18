@@ -3,7 +3,7 @@ import Vue from 'vue'
 import Vuex, { Store } from 'vuex'
 
 Vue.use(Vuex)
-export interface type {
+export interface TYPE {
   Products: [
     {
       id: number
@@ -14,8 +14,8 @@ export interface type {
       Price: number
       Tax: number
       Quantity: number
-      Count:number
-      OverLay:boolean
+      Count: number
+      OverLay: boolean
 
     }
   ],
@@ -36,13 +36,13 @@ export interface type {
   AddPermission: boolean
   RemovePermission: boolean
   TableDataPermisson: boolean
-  CartIndex:number
-  ShowCart:boolean
-  CartArray:any[]
-  
+  CartIndex: number
+  ShowCart: boolean
+  CartArray: any[]
+
 }
 
-export default new Vuex.Store<type>({
+export default new Vuex.Store<TYPE>({
   state: {
     Products: [
       {
@@ -54,14 +54,13 @@ export default new Vuex.Store<type>({
         Price: 0,
         Tax: 0,
         Quantity: 0,
-        Count:0,
-        OverLay:false
-  
+        Count: 0,
+        OverLay: false
+
       }
     ],
 
     EditedId: 0,
-    // EditedDetails: [],
     PagePermission: true,
     EditPermission: true,
     ProductPermisson: true,
@@ -76,10 +75,10 @@ export default new Vuex.Store<type>({
     AddPermission: true,
     RemovePermission: true,
     TableDataPermisson: true,
-    CartIndex:0,
-    ShowCart:false,
-    CartArray:[]
-    
+    CartIndex: 0,
+    ShowCart: false,
+    CartArray: []
+
 
 
   },
@@ -100,6 +99,7 @@ export default new Vuex.Store<type>({
     REMOVE_PRODUCT(state, payload: number) {
 
       const data = state.Products.filter(product => product.id !== payload)
+      console.log(data)
       state.Products = data
 
     },
@@ -114,19 +114,19 @@ export default new Vuex.Store<type>({
 
     },
 
-    Show_OverLay(state,payload){
-      state.Products[payload].OverLay=true
-      
+    Show_OverLay(state, payload) {
+      state.Products[payload].OverLay = true
+
     },
 
-    INCREMENT(state,payload){
-      if(state.Products[payload].Count>=0 && state.Products[payload].Count<state.Products[payload].Quantity){
-      state.Products[payload].Count++
+    INCREMENT(state, payload) {
+      if (state.Products[payload].Count >= 0 && state.Products[payload].Count < state.Products[payload].Quantity) {
+        state.Products[payload].Count++
       }
     },
-    DECREMENT(state,payload){
-      if(state.Products[payload].Count>0){
-      state.Products[payload].Count--
+    DECREMENT(state, payload) {
+      if (state.Products[payload].Count > 0) {
+        state.Products[payload].Count--
       }
     }
 
@@ -136,10 +136,8 @@ export default new Vuex.Store<type>({
       const response = await axios.get("http://localhost:3000/Details");
       commit("SET_PRODUCTS", response.data)
     },
-    async AddProduct({ commit }, payload: type) {
-
+    async AddProduct({ commit }, payload: TYPE) {
       const response = await axios.post("http://localhost:3000/Details", payload)
-
       commit("ADD_PRODUCT", response.data)
     },
 
@@ -159,17 +157,17 @@ export default new Vuex.Store<type>({
       commit('UPDATE_PRODUCTS', response.data)
     },
 
-    ShowOverLay({commit},payload){
+    ShowOverLay({ commit }, payload) {
       console.log(this.state.Products)
-      commit("Show_OverLay",payload)
+      commit("Show_OverLay", payload)
     },
-    Increment({commit},payload){
-      commit("INCREMENT",payload)
+    Increment({ commit }, payload) {
+      commit("INCREMENT", payload)
     },
-    Decrement({commit},payload){
-      commit("DECREMENT",payload)
+    Decrement({ commit }, payload) {
+      commit("DECREMENT", payload)
     }
-    
+
 
 
 
