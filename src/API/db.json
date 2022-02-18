@@ -1,16 +1,40 @@
 {
   "Details": [
     {
-      "Name": "",
-      "Gender": "",
-      "Size": "",
-      "Color": "",
-      "Price": null,
-      "Tax": null,
-      "Quantity": null,
+      "Name": "shirt",
+      "Gender": "Male",
+      "Size": "XS",
+      "Color": "red",
+      "Price": "1000",
+      "Tax": "12",
+      "Quantity": "1000",
       "OverLay": false,
       "Count": 0,
       "id": 1
+    },
+    {
+      "Name": "trouser",
+      "Gender": "Female",
+      "Size": "M",
+      "Color": "green",
+      "Price": "999",
+      "Tax": "10",
+      "Quantity": "100",
+      "OverLay": false,
+      "Count": 0,
+      "id": 2
+    },
+    {
+      "Name": "cap",
+      "Gender": "Other",
+      "Size": "L",
+      "Color": "black",
+      "Price": "499",
+      "Tax": "4",
+      "Quantity": "1000",
+      "OverLay": false,
+      "Count": 0,
+      "id": 3
     }
   ]
 }
