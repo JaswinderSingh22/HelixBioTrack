@@ -22,7 +22,7 @@
                       <v-row>
                         <v-col md="3">
                           <v-text-field
-                            label="Product name"
+                            label="Product Name"
                             v-model="name"
                           ></v-text-field>
                         </v-col>
@@ -110,12 +110,12 @@
 import { Component, Vue } from "vue-property-decorator";
 import { mapActions } from "vuex";
 import store from "../store";
-import Nav_bar from "./Navbar.vue";
+import Navbar from "./Navbar.vue";
 
 @Component({
   ...mapActions(["Add_Product"]),
   components: {
-    Nav_bar,
+    Navbar,
   },
 })
 export default class extends Vue {

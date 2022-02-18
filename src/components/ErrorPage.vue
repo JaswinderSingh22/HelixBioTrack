@@ -1,5 +1,5 @@
 <template>
-  <div class="error">
+  <div class="Error">
     <h1>
       Error 404.<br />
       Page Not Found
@@ -15,7 +15,7 @@
 
 <script lang="ts">
   import { Component, Vue } from 'vue-property-decorator';
-  import store from '../store'
+  
   @Component
   export default class  extends Vue {
     
@@ -23,11 +23,11 @@
 </script>
 
 <style scoped>
-.error {
+.Error {
   text-align: center;
   margin-top: 200px;
 }
-.error h1 {
+.Error h1 {
   color: brown;
   font-size: 100px;
 }
