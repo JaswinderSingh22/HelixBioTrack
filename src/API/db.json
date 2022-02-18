@@ -1,3 +1,16 @@
 {
-  "Details": []
+  "Details": [
+    {
+      "Name": "",
+      "Gender": "",
+      "Size": "",
+      "Color": "",
+      "Price": null,
+      "Tax": null,
+      "Quantity": null,
+      "OverLay": false,
+      "Count": 0,
+      "id": 1
+    }
+  ]
 }
