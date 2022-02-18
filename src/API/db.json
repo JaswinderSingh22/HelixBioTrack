@@ -1,13 +1,13 @@
 {
   "Details": [
     {
-      "Name": "ffwefwe",
+      "Name": "shirt",
       "Gender": "Female",
       "Size": "S",
-      "Color": "efw",
-      "Price": "2121",
-      "Tax": "21",
-      "Quantity": "10",
+      "Color": "red",
+      "Price": "1000",
+      "Tax": "12",
+      "Quantity": "1000",
       "OverLay": false,
       "Count": 0,
       "id": 1

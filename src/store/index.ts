@@ -23,7 +23,6 @@ export interface TYPE {
   ],
 
   EditedId: number
-  // EditedDetails: []
   PagePermission: boolean
   EditPermission: boolean
   ProductPermisson: boolean
