@@ -1,8 +1,10 @@
 import axios from 'axios'
 import Vue from 'vue'
-import Vuex, { Store } from 'vuex'
+import Vuex from 'vuex'
 
 Vue.use(Vuex)
+
+
 export interface TYPE {
   Products: [
     {
@@ -44,7 +46,7 @@ export interface TYPE {
 
 export default new Vuex.Store<TYPE>({
   state: {
-    Products: [],
+    Products:[],
 
     EditedId: 0,
     PagePermission: true,
@@ -87,7 +89,7 @@ export default new Vuex.Store<TYPE>({
     
     REMOVE_PRODUCT(state, payload: number) {
 
-      let data = state.Products.filter(product => product.id !== payload)
+      const data = state.Products.filter(product => product.id !== payload)
       console.log(data)
       state.Products = data  
 
@@ -112,12 +114,14 @@ export default new Vuex.Store<TYPE>({
     INCREMENT(state, payload) {
       if (state.Products[payload].Count >= 0 && state.Products[payload].Count < state.Products[payload].Quantity) {
         state.Products[payload].Count++
+        state.Products[payload].Quantity--
       }
     },
     
     DECREMENT(state, payload) {
       if (state.Products[payload].Count > 0) {
         state.Products[payload].Count--
+        state.Products[payload].Quantity++
       }
     }
 
