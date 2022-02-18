@@ -44,21 +44,7 @@ export interface TYPE {
 
 export default new Vuex.Store<TYPE>({
   state: {
-    Products: [
-      {
-        id: 1,
-        Name: "Default",
-        Gender: "NA",
-        Size: "NA",
-        Color: "NA",
-        Price: 0,
-        Tax: 0,
-        Quantity: 0,
-        Count: 0,
-        OverLay: false
-
-      }
-    ],
+    Products: [],
 
     EditedId: 0,
     PagePermission: true,
@@ -89,20 +75,24 @@ export default new Vuex.Store<TYPE>({
 
 
   mutations: {
+
     SET_PRODUCTS(state, payload) {
       state.Products = payload
 
     },
+
     ADD_PRODUCT(state, payload) {
       state.Products.push(payload)
     },
+    
     REMOVE_PRODUCT(state, payload: number) {
 
-      const data = state.Products.filter(product => product.id !== payload)
+      let data = state.Products.filter(product => product.id !== payload)
       console.log(data)
-      state.Products = data
+      state.Products = data  
 
     },
+    
     REMOVE_ALL(state) {
 
       state.Products = []
@@ -124,6 +114,7 @@ export default new Vuex.Store<TYPE>({
         state.Products[payload].Count++
       }
     },
+    
     DECREMENT(state, payload) {
       if (state.Products[payload].Count > 0) {
         state.Products[payload].Count--
@@ -131,12 +122,15 @@ export default new Vuex.Store<TYPE>({
     }
 
   },
+  
   actions: {
+    
     async GetProducts({ commit }) {
       const response = await axios.get("http://localhost:3000/Details");
       commit("SET_PRODUCTS", response.data)
     },
-    async AddProduct({ commit }, payload: TYPE) {
+    
+    async AddProduct({ commit }, payload) {
       const response = await axios.post("http://localhost:3000/Details", payload)
       commit("ADD_PRODUCT", response.data)
     },
@@ -146,13 +140,14 @@ export default new Vuex.Store<TYPE>({
       await axios.delete(`http://localhost:3000/Details/${payload}`)
       commit("REMOVE_PRODUCT", payload)
     },
+    
     async RemoveAll({ commit }) {
 
       commit('REMOVE_ALL')
     },
 
 
-    async update_details({ commit }, payload: any) {
+    async update_details({ commit }, payload) {
       const response = await axios.put(`http://localhost:3000/Details/${this.state.EditedId}`, payload)
       commit('UPDATE_PRODUCTS', response.data)
     },
@@ -161,9 +156,11 @@ export default new Vuex.Store<TYPE>({
       console.log(this.state.Products)
       commit("Show_OverLay", payload)
     },
+    
     Increment({ commit }, payload) {
       commit("INCREMENT", payload)
     },
+    
     Decrement({ commit }, payload) {
       commit("DECREMENT", payload)
     }
