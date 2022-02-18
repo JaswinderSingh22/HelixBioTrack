@@ -45,7 +45,21 @@ export interface TYPE {
 
 export default new Vuex.Store<TYPE>({
   state: {
-    Products:[],
+    Products:[
+      {
+        id: 1,
+        Name: "Product",
+        Gender: "Male",
+        Size: "XL",
+        Color: "Red",
+        Price: 0,
+        Tax: 0,
+        Quantity: 0,
+        Count: 0,
+        OverLay: false
+  
+      }
+    ],
 
     EditedId: 0,
     PagePermission: true,
@@ -87,15 +101,14 @@ export default new Vuex.Store<TYPE>({
     },
     
     REMOVE_PRODUCT(state, payload: number) {
-
-      const data = state.Products.filter(product => product.id !== payload)
+      const Items=JSON.parse(JSON.stringify(state.Products))
+      const data = Items.filter((product:any) => product.id !== payload)
       console.log(data)
       state.Products = data  
 
     },
     
     REMOVE_ALL(state) {
-
       state.Products = []
     },
 

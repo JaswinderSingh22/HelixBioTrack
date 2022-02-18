@@ -3,7 +3,7 @@
     <v-container>
       <v-row style="text-align: center">
         <v-col
-          v-for="(Item, index) in AllProducts"
+          v-for="(Item, index) in $store.state.Products"
           :key="index"
           cols="4"
         >
