@@ -2,7 +2,7 @@
   <v-app>
     
     <div class="main">
-      <NormalNavbar />
+      <NormalNavbar  />
       <div class="CONTAINER">
         <div class="CARDS">
           <Cards />
