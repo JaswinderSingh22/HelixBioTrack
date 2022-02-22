@@ -6,7 +6,6 @@
         <div class="heading">
           <ul class="d-flex">
             <li>S.No</li>
-            <li>S.No</li>
             <li>DATE</li>
             <li>TIME</li>
             <li>NAME</li>
@@ -27,7 +26,6 @@
         >
           <ul class="d-flex" v-for="(cart, Index2) in Item" :key="Index2">
             <li>{{cart.SerialNumber}}</li>
-            <li>{{}}</li>
             <li>{{cart.DateTime.slice(0,10)}}</li>
             <li>{{cart.DateTime.slice(11,20)}}</li>
             <li>{{cart.Name}}</li>

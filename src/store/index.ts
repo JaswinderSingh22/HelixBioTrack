@@ -54,6 +54,9 @@ export interface TYPE {
       Quantity: number
       Count: number
       OverLay: boolean
+      DateTime:any
+      TotalAmount:number
+      SerialNumber:number
     }
   ]
   OrderArray: [
