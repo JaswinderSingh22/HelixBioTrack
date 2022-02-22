@@ -16,7 +16,7 @@
     <v-card-title></v-card-title>
     <v-container class="tabl" >
       <v-simple-table>
-        <template>
+        <template  >
           <thead>
             <tr>
               <th>Name</th>
@@ -106,6 +106,9 @@ export default class extends Vue {
 
 <style scoped>
 
-
+.tabl{
+overflow: scroll;
+height: 400px;
+}
 
 </style>

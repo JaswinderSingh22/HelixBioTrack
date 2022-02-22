@@ -4,12 +4,15 @@
       <v-card height="580px">
         <div d-flex>
           <v-card-title
-            ><v-icon large color="primary" class="mr-3" >mdi-cart</v-icon> Shopping Cart
+            ><v-icon large color="primary" class="mr-3">mdi-cart</v-icon>
+            Shopping Cart
             <v-spacer></v-spacer>
-            <v-icon class="mr-5" color="red" >mdi-heart</v-icon>
-            <v-icon class="mr-3" color="primary" >mdi-tag-multiple</v-icon>
-            <v-icon @click="ClearCart()" class="mr-3" color="red" >mdi-delete</v-icon>
-            <v-icon color="black" >mdi-content-save-all</v-icon>
+            <v-icon class="mr-5" color="red">mdi-heart</v-icon>
+            <v-icon class="mr-3" color="primary">mdi-tag-multiple</v-icon>
+            <v-icon @click="ClearCart()" class="mr-3" color="red"
+              >mdi-delete</v-icon
+            >
+            <v-icon color="black">mdi-content-save-all</v-icon>
           </v-card-title>
           <v-divider></v-divider>
           <div>
@@ -44,27 +47,15 @@
           <v-divider></v-divider>
           <div style="height: 40px">
             <span style="margin-left: 20px">Total</span>
-            <span style="margin-left: 280px">Rs. {{ GrandTotal() }}</span>
+            <span style="margin-left: 280px"
+              >Rs. {{ GrandTotal().toFixed(2) }}</span
+            >
           </div>
           <br />
 
-          <v-dialog transition="dialog-bottom-transition" width="600">
-            <template v-slot:activator="{ on, attrs }">
-              <v-btn color="green" v-bind="attrs" v-on="on" width="100%"
-                >SEND TO ORDER FULLFILLMENT</v-btn
-              >
-            </template>
-            <template v-slot:default="dialog">
-              <v-card>
-                <v-card-text>
-                  <div class="text-h2 pa-12">Order Placed Successfully</div>
-                </v-card-text>
-                <v-card-actions class="justify-end">
-                  <v-btn text @click="dialog.value = false">Close</v-btn>
-                </v-card-actions>
-              </v-card>
-            </template>
-          </v-dialog>
+          <v-btn color="green" width="100%" @click="OrderPlace"
+            >Submit Order</v-btn
+          >
         </div>
       </v-card>
     </v-container>
@@ -110,6 +101,23 @@ export default class extends Vue {
   }
   ClearCart() {
     store.state.CartArray = [];
+  }
+
+  OrderPlace() {
+    let payload = store.state.CartArray;
+    store.state.CartArray = [];
+    console.log(payload);
+    for (let i = 0; i < payload.length; i++) {
+      payload[i].DateTime = new Date().toLocaleString();
+      payload[i].TotalAmount =
+        payload[i].Price * payload[i].Count +
+        (payload[i].Price * payload[i].Count * payload[i].Tax) / 100;
+      payload[i].SerialNumber = store.state.SerialNumber;
+      store.state.SerialNumber++;
+    }
+    console.log(payload);
+
+    store.dispatch("OrderPlace", payload);
   }
 }
 </script>

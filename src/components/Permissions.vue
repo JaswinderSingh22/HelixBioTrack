@@ -77,6 +77,7 @@
         </v-col>
       </v-row>
     </v-container>
+    <v-btn to="/Products" color="primary" width="100%">SUBMIT</v-btn>
   </v-card>
 </template>   
 

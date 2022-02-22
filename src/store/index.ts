@@ -39,13 +39,45 @@ export interface TYPE {
   TableDataPermisson: boolean
   CartIndex: number
   ShowCart: boolean
-  CartArray: any[]
+  OrderDate: any
+  SerialNumber:number
+
+  CartArray: [
+    {
+      id: number
+      Name: string
+      Gender: string
+      Size: string
+      Color: string
+      Price: number
+      Tax: number
+      Quantity: number
+      Count: number
+      OverLay: boolean
+    }
+  ]
+  OrderArray: [
+    {
+      id: number
+      Name: string
+      Gender: string
+      Size: string
+      Color: string
+      Price: number
+      Tax: number
+      Quantity: number
+      Count: number
+      OverLay: boolean
+    }
+  ]
+
+
 
 }
 
 export default new Vuex.Store<TYPE>({
   state: {
-    Products:[
+    Products: [
       {
         id: 1,
         Name: "Product",
@@ -57,7 +89,7 @@ export default new Vuex.Store<TYPE>({
         Quantity: 0,
         Count: 0,
         OverLay: false
-  
+
       }
     ],
 
@@ -78,36 +110,45 @@ export default new Vuex.Store<TYPE>({
     TableDataPermisson: true,
     CartIndex: 0,
     ShowCart: false,
-    CartArray: []
+    OrderDate: "",
+    CartArray: [],
+    OrderArray: [],
+    SerialNumber:1
+
+
 
 
 
   },
   getters: {
     AllProducts: state => state.Products,
-
   },
 
+
+  //-----------------> MUTATIONS <------------------
 
   mutations: {
 
     SET_PRODUCTS(state, payload) {
-      state.Products = payload
+      // console.log(payload)
+      const Items = JSON.parse(JSON.stringify(payload))
+      // console.log(Items)
+      state.Products = Items
 
     },
 
     ADD_PRODUCT(state, payload) {
       state.Products.push(payload)
     },
-    
+
     REMOVE_PRODUCT(state, payload: number) {
-      const Items=JSON.parse(JSON.stringify(state.Products))
-      const data = Items.filter((product:any) => product.id !== payload)
-      console.log(data)
-      state.Products = data  
+      const Items = JSON.parse(JSON.stringify(state.Products))
+      const data = Items.filter((product: any) => product.id !== payload)
+      // console.log(data) 
+      state.Products = data
 
     },
-    
+
     REMOVE_ALL(state) {
       state.Products = []
     },
@@ -118,7 +159,7 @@ export default new Vuex.Store<TYPE>({
 
     },
 
-    Show_OverLay(state, payload) {
+    SHOW_OVERLAY(state, payload) {
       state.Products[payload].OverLay = true
 
     },
@@ -129,23 +170,38 @@ export default new Vuex.Store<TYPE>({
         state.Products[payload].Quantity--
       }
     },
-    
+
     DECREMENT(state, payload) {
       if (state.Products[payload].Count > 0) {
         state.Products[payload].Count--
         state.Products[payload].Quantity++
       }
+    },
+
+    ORDER_PLACE(state, payload) {
+
+      state.OrderArray.push(payload)
+    },
+
+    GET_ORDER(state, payload) {
+      state.OrderArray = payload
     }
 
+
+
   },
-  
+
+
+
+  // ------------> ACTIONS <-------------------
+
   actions: {
-    
+
     async GetProducts({ commit }) {
       const response = await axios.get("http://localhost:3000/Details");
       commit("SET_PRODUCTS", response.data)
     },
-    
+
     async AddProduct({ commit }, payload) {
       const response = await axios.post("http://localhost:3000/Details", payload)
       commit("ADD_PRODUCT", response.data)
@@ -156,7 +212,7 @@ export default new Vuex.Store<TYPE>({
       await axios.delete(`http://localhost:3000/Details/${payload}`)
       commit("REMOVE_PRODUCT", payload)
     },
-    
+
     async RemoveAll({ commit }) {
 
       commit('REMOVE_ALL')
@@ -169,19 +225,29 @@ export default new Vuex.Store<TYPE>({
     },
 
     ShowOverLay({ commit }, payload) {
-      console.log(this.state.Products)
-      commit("Show_OverLay", payload)
+      // console.log(this.state.Products)
+      commit("SHOW_OVERLAY", payload)
     },
-    
+
     Increment({ commit }, payload) {
       commit("INCREMENT", payload)
     },
-    
+
     Decrement({ commit }, payload) {
       commit("DECREMENT", payload)
-    }
+    },
+
+    async OrderPlace({ commit }, payload) {
 
 
+      const response = await axios.post("http://localhost:3000/CartDetails", payload)
+
+      commit("ORDER_PLACE", response.data)
+    },
+    async GetOrder({ commit }) {
+      const response = await axios.get("http://localhost:3000/CartDetails");
+      commit("GET_ORDER", response.data)
+    },
 
 
   },

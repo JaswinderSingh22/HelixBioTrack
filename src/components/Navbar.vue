@@ -130,7 +130,9 @@
                   <br />
                   <v-icon>mdi-arrow-up-bold-box-outline</v-icon>
                   <h3>REPORTS</h3>
+                  <router-link to="/ReportTool">
                   <h5>Report Tool</h5>
+                  </router-link>
                 </v-card>
               </v-col>
               <v-col>

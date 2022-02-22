@@ -102,7 +102,9 @@ export default class extends Vue {
     } else if(!store.state.CartArray.includes(Item)){
       store.state.CartIndex = Index;
       store.state.ShowCart = true;
+      store.state.Products[Index].OverLay=false
       store.state.CartArray.push(Item)
+     
     }
   }
 }

@@ -29,7 +29,11 @@ import Cards from "@/components/Cards.vue";
     Cards,
   },
 })
-export default class extends Vue {}
+export default class extends Vue {
+
+  
+
+}
 </script>
 
 <style scoped>

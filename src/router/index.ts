@@ -7,6 +7,9 @@ import Products from '../views/Products.vue'
 import ErrorPage from '../components/ErrorPage.vue'
 import Permission from '../views/Permission.vue'
 import PointSale from '../views/PointSale.vue'
+import ReportTool from "../views/ReportTool.vue"
+
+
 Vue.use(VueRouter)
 
 const routes: Array<RouteConfig> = [
@@ -39,6 +42,11 @@ const routes: Array<RouteConfig> = [
     path: '/PointSale',
     name: 'PointSale',
     component: PointSale
+  },
+  {
+    path: '/ReportTool',
+    name: 'ReportTool',
+    component: ReportTool
   },
   {
     path: '/*',
